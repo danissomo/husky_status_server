@@ -1,0 +1,23 @@
+{
+    "key" : "12312321",
+    "uptime": 17288519,
+    "ros_control_loop_freq": 9.87244319641,
+    "mcu_and_user_port_current": 0.96,
+    "left_driver_current": 0.59,
+    "right_driver_current": 0.59,
+    "battery_voltage": 26.27,
+    "left_driver_voltage": 23.91,
+    "right_driver_voltage": 24.19,
+    "left_driver_temp": 29.36,
+    "right_driver_temp": 31.94,
+    "left_motor_temp": 20.06,
+    "right_motor_temp": 21.01,
+    "capacity_estimate": 480,
+    "charge_estimate": 1.0,
+    "timeout": false,
+    "lockout": false,
+    "e_stop": false,
+    "ros_pause": false,
+    "no_battery": false,
+    "current_limit": false
+}

@@ -1,0 +1,23 @@
+class RobotStatus():
+    online = False
+    key = "12312321"
+    uptime= 0
+    ros_control_loop_freq= 0
+    mcu_and_user_port_current= 0
+    left_driver_current= 0
+    right_driver_current= 0
+    battery_voltage= 0
+    left_driver_voltage= 0
+    right_driver_voltage= 0
+    left_driver_temp= 0
+    right_driver_temp= 0
+    left_motor_temp= 0
+    right_motor_temp= 0
+    capacity_estimate= 0
+    charge_estimate= 0
+    timeout= False
+    lockout= False
+    e_stop= False
+    ros_pause= False
+    no_battery= False
+    current_limit= False
