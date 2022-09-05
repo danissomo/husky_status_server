@@ -24,7 +24,10 @@ function callback(status, json){
         }
         var cels = rows[i].getElementsByTagName("td");
         cels[0].innerHTML  = key;
-        cels[1].innerHTML  = json[key];
+        if (key == "ros_control_loop_freq")
+          cels[1].innerHTML = json[key].toFixed(8);
+        else 
+          cels[1].innerHTML  = json[key];
         i+=1; 
     }
     var h2 = document.getElementById("online_stat");

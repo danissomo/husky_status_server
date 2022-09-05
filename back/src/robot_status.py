@@ -1,5 +1,6 @@
 class RobotStatus():
     online = False
+    last_online  = 0
     key = "12312321"
     uptime= 0
     ros_control_loop_freq= 0

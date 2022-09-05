@@ -2,7 +2,7 @@ from flask import Flask, request, Response, jsonify
 import os
 import threading
 from robot_status import RobotStatus
-
+import time
 
 class App:
     def __init__(self) -> None:
@@ -10,6 +10,8 @@ class App:
         self.back_dir_name =  os.path.dirname(os.path.dirname(__file__))
         self.timer = threading.Timer(10, self.update_status)
         self.timer.start()
+        self.timeout_sec = 10
+        self.last_online = time.time()
         
 
         @self.app.route("/", methods = ['GET'])
@@ -51,6 +53,7 @@ class App:
                 RobotStatus.ros_pause                   =   request.json["ros_pause"                   ]
                 RobotStatus.no_battery                  =   request.json["no_battery"                  ]
                 RobotStatus.current_limit               =   request.json["current_limit"               ]
+                RobotStatus.last_online                 =   time.time()
                 return Response(status=200)
             return Response(status=404)
 
@@ -91,7 +94,8 @@ class App:
     def update_status(self):
         self.timer = threading.Timer(10, self.update_status)
         self.timer.start()
-        RobotStatus.online = False
+        if time.time() - self.last_online > self.timeout_sec:
+            RobotStatus.online = False
 
     
 
